@@ -12,7 +12,7 @@ export default class ToDo extends LightningElement {
     
     newTask ='';
     processing = true;
-    
+    renderText = true;
 
     updateNewTask(event){
         this.newTask='';
