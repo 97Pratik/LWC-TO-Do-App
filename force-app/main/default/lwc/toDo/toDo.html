@@ -1,6 +1,4 @@
-<!-- sldsValidatorIgnore -->
-<!-- sldsValidatorIgnore -->
-<!-- sldsValidatorIgnore -->
+
 <template>
     <lightning-card title ="To Do List" style="width :100%;">
         <lightning-button-icon
@@ -25,15 +23,15 @@
                                     {todoTask.name}
                                 </lightning-layout-item>
                                 <lightning-layout-item padding="horizontal-small">
-                                    <lightning-button-icon 
-                                        icon-name="utility:delete" 
-                                        alternative-text="Delete" 
-                                        title="Delete"
+                                    <!-- Button to delete/remove the task from the list -->
+                                    <lightning-button-icon
+                                        icon-name="utility:delete"
+                                        alternative-text="Delete"
                                         onclick={deleteTask}
                                         name={todoTask.id}
-                                    ></lightning-button-icon>
+                                        title="Delete">
+                                    </lightning-button-icon>
                                 </lightning-layout-item>
-                             
                             </lightning-layout>
                         </li>
                     </template>
@@ -48,16 +46,16 @@
                 <lightning-layout-item padding="horizontal-small" flexibility="grow">
                     <lightning-input 
                         type="text"
-                        placeholder="Enter New Task"
+                        placeholder="Enter New text"
                         variant="label-hidden"
-                        value={newtask}
+                        value={newTask}
                         label="New Task"
                         onchange={updateNewTask}
                         autocomplete="off"
-                        required
-                    ></lightning-input>
+                        required>
+                    </lightning-input>
                 </lightning-layout-item>
-                <lightning-layout-item padding="horiontal-small" >
+                <lightning-layout-item padding="horizontal-small" >
                     <lightning-button
                         variant="brand"
                         label="Add"

@@ -15,8 +15,8 @@ export default class ToDo extends LightningElement {
     renderText = true;
 
     updateNewTask(event){
-        this.newTask='';
         this.newTask = event.target.value;
+        
     }
 
     addTaskToList(event){
@@ -27,15 +27,23 @@ export default class ToDo extends LightningElement {
             return;
         }
         this.processing=true;
+        //this.renderText = false;
         insertTask({subject : this.newTask})
         .then(result => {
+            
             console.log(result);
             this.todoTasks.push({
                 id:this.todoTasks[this.todoTasks.length - 1] ? this.todoTasks[this.todoTasks.length - 1].id + 1: 0,
                 name : this.newTask,
-                recordId : result.Id
+                recordId : result.Id,
+                
             }); 
             this.newTask='';
+
+            // if(this.newTask== ''){
+            //     this.renderText=true;
+            // }
+            
         })
         .catch(error => console.log(error))
         .finally(()=> this.processing = false);
